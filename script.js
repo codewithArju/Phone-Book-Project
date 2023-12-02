@@ -188,7 +188,7 @@ function clickMe() {
   headerRow.className = "Sub";
 
   // Creating table headers
-  let headers = ["Name", "Phone-Number", "Address", "Email"];
+  let headers = ["Name", "Phone-Number", "Address", "Email","actoin"];
   headers.forEach(headerText => {
     let tableHead = document.createElement("th");
     tableHead.className = "tableHeadclass";
@@ -216,18 +216,58 @@ function clickMe() {
     let emailCell = document.createElement("td");
     emailCell.innerText = person.email;
 
+   let actionCell=document.createElement("tr");
+   
+
+   let btn1=document.createElement("button");
+   btn1.innerText="Edit";
+   
+
+   let btn2=document.createElement("button");
+   btn2.innerText="Delete";
+  
+   
+
     // Appending cells to the row
     row.appendChild(nameCell);
     row.appendChild(phoneNumberCell);
     row.appendChild(addressCell);
     row.appendChild(emailCell);
+    row.appendChild(actionCell);
+    actionCell.appendChild(btn1);
+
+   actionCell.appendChild(btn2);
+
 
     tbody.appendChild(row);
+    
   });
+  let inputRow = document.createElement("tr");
 
+  for (let i = 0; i < headers.length-1; i++) {
+    let inputCell = document.createElement("td");
+    let inputBox = document.createElement("input");
+    inputBox.type = "text";
+    inputCell.appendChild(inputBox);
+    inputRow.appendChild(inputCell);
+  
+  }
+  // Creating a submit button under the action column
+let actionCell = document.createElement("td");
+let submitButton = document.createElement("button");
+submitButton.textContent = "Submit";
+submitButton.type = "submit"; // If this is part of a form submission
+actionCell.appendChild(submitButton);
+inputRow.appendChild(actionCell);
+
+  // Append the input row to the tbody
+  tbody.appendChild(inputRow);
   table.appendChild(tbody);
-
+  
   // Appending the table to the HTML body or any desired element
+  
   document.body.appendChild(table);
+  
+  
 }
-clickMe();
+

@@ -1,6 +1,7 @@
 /* Basic styles for the table structure */
 *{
-  margin: auto;
-  padding: auto;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
+
 }
